@@ -6,11 +6,15 @@ import { Provider } from 'react-redux';
 import createstore from './store';
 const store = createstore(); // store is object
 
-setTimeout(() => {
-    store.dispatch({
-        type: 'lala'
-    })
-}, 2000)
+// setTimeout(() => {
+//     store.dispatch({
+//         type: 'SET_BOOKS',
+//         payload: [{
+//         id: 12,
+//         title: 'Anna Karenina'
+//     }]
+//     })
+// }, 1000)
 
 ReactDOM.render(
   <Provider store={store}>
