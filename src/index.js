@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import App from './App';
 //import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import store from './store';
+import createstore from './store';
+const store = createstore(); // store is object
+
+setTimeout(() => {
+    store.dispatch({
+        type: 'lala'
+    })
+}, 2000)
 
 ReactDOM.render(
-  <Provider store={store()}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')

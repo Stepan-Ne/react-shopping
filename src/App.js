@@ -1,12 +1,17 @@
 import React from 'react';
+import {connect} from "react-redux";
 
 
-function App() {
+function App({books, ...props}) {
+
   return (
     <div className="Container">
-      Shopping
+        {books.books[0].title}
     </div>
   );
 }
 
-export default App;
+const mapState = (state) => ({
+    books: state.allBooks
+})
+export default connect(mapState, null)(App);
