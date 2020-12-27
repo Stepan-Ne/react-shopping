@@ -4,8 +4,10 @@ import App from './App';
 //import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import createstore from './store';
-const store = createstore(); // store is object
 import 'semantic-ui-css/semantic.min.css';
+import './App.css';
+
+const store = createstore(); // store is object
 
 // setTimeout(() => {
 //     store.dispatch({

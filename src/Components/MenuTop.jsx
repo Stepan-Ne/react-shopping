@@ -6,7 +6,7 @@ const MenuTop = () => {
     const [activeItem, setActiveItem] = useState('')
     const  handleItemClick = (e, { name }) => setActiveItem({ activeItem: name })
     return (
-        <div>
+
             <Menu>
                 <Menu.Item
                     name='browse'
@@ -34,7 +34,7 @@ const MenuTop = () => {
                     </Menu.Item>
                 </Menu.Menu>
             </Menu>
-        </div>
+
     );
 };
 

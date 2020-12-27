@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {connect} from "react-redux";
-import { Container } from 'semantic-ui-react';
+import { Container, Card } from 'semantic-ui-react';
+
 
 import {setBooksAC} from './actions/booksAC';
 import MenuTop from "./Components/MenuTop";
+import BookCard from "./Components/BookCard";
 
 
 
@@ -20,18 +22,18 @@ function App(props) {
 
     return (
         <Container>
-            <div>
+
                 <MenuTop />
-            </div>
-            <div className="Container">
-                <ul>
+
+
+                <Card.Group>
                     {
                         props.isReady
-                            ? props.books.map(i => <li key={i.id}>{i.title}. {i.author}</li>)
+                            ? props.books.map(i => <BookCard  key={i.id} {...i} />)
                             : 'Loading ...'
                     }
-                </ul>
-            </div>
+                </Card.Group>
+
         </Container>
 
     );
