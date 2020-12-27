@@ -5,6 +5,7 @@ import App from './App';
 import { Provider } from 'react-redux';
 import createstore from './store';
 const store = createstore(); // store is object
+import 'semantic-ui-css/semantic.min.css';
 
 // setTimeout(() => {
 //     store.dispatch({

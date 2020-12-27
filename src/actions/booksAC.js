@@ -1,5 +1,5 @@
 
-export  const addNewBookAC = (newBook) => ({
-    type: `ADD_BOOKS`,
-    payload: newBook
+export  const setBooksAC = (booksList) => ({
+    type: `SET_BOOKS`,
+    payload: booksList
 })

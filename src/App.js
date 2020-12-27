@@ -1,41 +1,49 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
-import {addNewBookAC} from './actions/booksAC';
+import { Container } from 'semantic-ui-react';
+
+import {setBooksAC} from './actions/booksAC';
+import MenuTop from "./Components/MenuTop";
 
 
-// books: [{
-//     id: 12,
-//     title: 'Anna Karenina'
-// }]
+
+
 function App(props) {
 
-    const {books} = props.books;
-    const newBook = {
-        title: 'Lolo: ' + new Date()
-    }
+    //const {books} = props.books;
+    useEffect(() => {
+        fetch('/books.json')
+            .then(res => res.json())
+            .then(booksList => props.setBooksList(booksList))
+    }, [])
 
-    const setNewBook = () => {
-        props.setNewBook(newBook)
-        console.log(newBook);
-    }
 
     return (
-        <div className="Container">
-            {
-                books.map(b => <h3 key={Math.random()}>{b.title}</h3>)
-            }
+        <Container>
+            <div>
+                <MenuTop />
+            </div>
+            <div className="Container">
+                <ul>
+                    {
+                        props.isReady
+                            ? props.books.map(i => <li key={i.id}>{i.title}. {i.author}</li>)
+                            : 'Loading ...'
+                    }
+                </ul>
+            </div>
+        </Container>
 
-            <button onClick={setNewBook}>Click</button>
-        </div>
     );
 }
 
 const mapState = (state) => ({
-    books: state.allBooks
+    books: state.allBooks.books,
+    isReady: state.allBooks.isReady
 })
 const mapDispatch = (dispatch) => {
     return {
-        setNewBook: (newBook) => dispatch(addNewBookAC(newBook))
+        setBooksList: (booksList) => dispatch(setBooksAC(booksList))
     }
 }
 export default connect(mapState, mapDispatch)(App);
