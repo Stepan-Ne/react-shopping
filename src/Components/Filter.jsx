@@ -29,9 +29,9 @@ const Filter = (props) => {
           onClick={() => props.filterAC('price_low')}
         />
         <Menu.Item
-          name='aughtor'
-          active={'aughtor' ===  props.filterBy}
-          onClick={() => props.filterAC('aughtor')}
+          name='author'
+          active={'author' ===  props.filterBy}
+          onClick={() => props.filterAC('author')}
         />
         
       </Menu>
