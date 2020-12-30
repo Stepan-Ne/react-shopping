@@ -5,16 +5,6 @@ import { filterAC } from '../actions/filterAC';
 
 const Filter = (props) => {
 
-  // const [state, setState] = useState({  activeItem: 'all' });
-
-  // const { activeItem } = state;
-
-  // const handleItemClick = (e, { name }) => setState(prevState => ({
-  //   ...prevState,
-  //   activeItem: name
-  // })
-  // );
-  
 
   return (
 <Menu secondary>
