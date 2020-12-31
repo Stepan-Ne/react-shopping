@@ -1,6 +1,6 @@
 const initialState = {
   filterBy: 'all',
-  setQuery: null
+  searchQuery: null
 }
 
 const filterReducer = (state = initialState, action) => {
@@ -9,6 +9,7 @@ const filterReducer = (state = initialState, action) => {
     case 'SET_QUERY':
       return {
         ...state,
+        searchQuery: action.payload
 
       };
       case `FILTER_BY`:

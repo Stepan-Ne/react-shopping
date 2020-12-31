@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Menu, Input } from 'semantic-ui-react';
-import { filterAC } from '../actions/filterAC';
+import { filterAC, queryAC } from '../actions/filterAC';
 
 const Filter = (props) => {
 
@@ -34,7 +34,9 @@ const Filter = (props) => {
           onClick={() => props.filterAC('author')}
         />
         <Menu.Item>
-          <Input  placeholder='set the book...' icon='search'/>
+          <Input  placeholder='set the book...' 
+          icon='search' value={props.searchQuery}
+          onChange={e => props.queryAC(e.target.value)}/>
         </Menu.Item>
         
       </Menu>
@@ -42,7 +44,8 @@ const Filter = (props) => {
 };
 
 const mapState = (state) => ({
-  filterBy: state.filterReducer.filterBy
+  filterBy: state.filterReducer.filterBy,
+  searchQuery: state.filterReducer.searchQuery
 });
 
-export default connect( mapState, { filterAC } )(Filter);
+export default connect( mapState, { filterAC, queryAC } )(Filter);

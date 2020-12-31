@@ -1,5 +1,5 @@
 const initialState = {
-    books: null,
+    books: [],
     isReady: false
 }
 
@@ -21,4 +21,4 @@ switch (action.type) {
         return state;
 
 }
-}
+};
