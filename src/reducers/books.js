@@ -1,7 +1,6 @@
 const initialState = {
     books: null,
-    isReady: false,
-    filterBy: 'all'
+    isReady: false
 }
 
 export default (state = initialState, action) => {
@@ -16,11 +15,6 @@ switch (action.type) {
         return {
             ...state,
             isReady: action.payload
-        };
-        case `FILTER_BY`:
-        return {
-            ...state,
-            filterBy: action.payload
         };
 
     default:

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Input } from 'semantic-ui-react';
 import { filterAC } from '../actions/filterAC';
 
 const Filter = (props) => {
@@ -33,13 +33,16 @@ const Filter = (props) => {
           active={'author' ===  props.filterBy}
           onClick={() => props.filterAC('author')}
         />
+        <Menu.Item>
+          <Input  placeholder='set the book...' icon='search'/>
+        </Menu.Item>
         
       </Menu>
   )
 };
 
 const mapState = (state) => ({
-  filterBy: state.allBooks.filterBy
+  filterBy: state.filterReducer.filterBy
 });
 
 export default connect( mapState, { filterAC } )(Filter);

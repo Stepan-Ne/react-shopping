@@ -20,7 +20,7 @@ switch (type) {
 };
 
 const mapState = (state) => ({
-    books: sortBy(state.allBooks.books, state.allBooks.filterBy),
+    books: sortBy(state.allBooks.books, state.filterReducer.filterBy),
     isReady: state.allBooks.isReady
 })
 const mapDispatch = (dispatch) => {
