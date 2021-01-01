@@ -13,7 +13,7 @@ switch (action.type) {
   case `REMOVE_BOOK`:
       return {
           ...state,
-          books: state.books.filter(b => b.id === action.payload)
+          booksInCart: state.booksInCart.filter(b => b.id !== action.payload)
       };
 
   default:
