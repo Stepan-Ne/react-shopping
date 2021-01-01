@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
-import MenuTop from './Components/MenuTop';
+import MenuTop from './Containers/MenuContainer';
 import BooksContainer from './Containers/BooksContainer';
 import FilterContainer from './Containers/FilterContainer';
 

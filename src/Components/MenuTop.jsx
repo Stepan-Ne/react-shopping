@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Menu } from 'semantic-ui-react';
 
-const MenuTop = () => {
+const MenuTop = (props) => {
 
     const [activeItem, setActiveItem] = useState('')
     const  handleItemClick = (e, { name }) => setActiveItem({ activeItem: name })
@@ -22,15 +22,23 @@ const MenuTop = () => {
                         active={activeItem === 'signup'}
                         onClick={handleItemClick}
                     >
-                        Итого: &nbsp; <b>0</b> руб.
+                        Итого: &nbsp; {
+                            props.booksInCart.length > 0
+                            ? <b>{
+                                props.booksInCart.reduce((acc, current) => {
+                                    return acc + current.price
+                                }, 0)
+                                }</b>
+                            : <b>0</b>
+                        } руб.
                     </Menu.Item>
 
                     <Menu.Item
-                        name='help'
+                        name='help' 
                         active={activeItem === 'help'}
                         onClick={handleItemClick}
                     >
-                        Корзина
+                        Корзина: &nbsp; <b> {props.booksInCart.length} </b>
                     </Menu.Item>
                 </Menu.Menu>
             </Menu>

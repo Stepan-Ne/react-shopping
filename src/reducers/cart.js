@@ -1,5 +1,22 @@
 const initialState = {
- books: []
+ booksInCart: [
+    {
+        "id": 1,
+        "title": "1984",
+        "author": "Джордж Оруэлл",
+        "image": "https://cv0.litres.ru/sbc/09233908_cover_185-elektronnaya-kniga--.jpg",
+        "price": 415,
+        "rating": 5
+      },
+      {
+        "id": 1,
+        "title": "1984",
+        "author": "Джордж Оруэлл",
+        "image": "https://cv0.litres.ru/sbc/09233908_cover_185-elektronnaya-kniga--.jpg",
+        "price": 415,
+        "rating": 5
+      }
+ ]
 }
 
 const cartReducer = (state = initialState, action) => {
