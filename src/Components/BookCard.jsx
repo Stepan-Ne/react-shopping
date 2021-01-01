@@ -19,7 +19,7 @@ const BookCard = (props) => {
   const { book, ...restProps } = props;
   const { title, author, image, price, id } = book;
   const countBook = restProps.countAddedBook.reduce((acc, count) => {
-    return count.id === id ? acc + 1 : acc + 0;
+    return acc + (count.id === id ? 1 : 0);
   }, 0);
 
   const addBookToCart = (e) => {
@@ -42,7 +42,7 @@ const BookCard = (props) => {
       </Card.Content>
       <StyledButton onClick={addBookToCart}>Add to the cart &nbsp;
       {
-          countBook > 0 ? `(${countBook})` : ''
+          countBook > 0 && `(${countBook})`
       }
       </StyledButton>
     </Card>

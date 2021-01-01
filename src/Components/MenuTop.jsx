@@ -1,8 +1,18 @@
 import React, {useState} from 'react';
-import { Menu } from 'semantic-ui-react';
-import styled from 'styled-components';
+import { Menu, Button, Popup, List, Image } from 'semantic-ui-react';
 
 
+const CartList = ({ title, id, image }) => {
+    return <List selection divided verticalAlign='middle'>
+    <List.Item>
+      <List.Content floated='right'>
+        <Button>Remove</Button>
+      </List.Content>
+      <Image avatar src='https://react.semantic-ui.com/images/avatar/small/lena.png' />
+      <List.Content>Lena</List.Content>
+    </List.Item>
+  </List>
+}
 
 const MenuTop = (props) => {
 
@@ -35,14 +45,17 @@ const MenuTop = (props) => {
                             : <b>0</b>
                         } руб.
                     </Menu.Item>
-
-                    <Menu.Item
+                    <Popup content={CartList}
+                     trigger={<Menu.Item
                         name='help' 
                         active={activeItem === 'help'}
                         onClick={handleItemClick}
                     >
                         Корзина: &nbsp; <b> {props.booksInCart.length} </b>
-                    </Menu.Item>
+                    </Menu.Item>}
+                    on='click'
+                    hideOnScroll />
+                    
                 </Menu.Menu>
             </Menu>
 
