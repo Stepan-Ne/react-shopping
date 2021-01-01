@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { setBooksAC } from '../actions/booksAC';
 import Books from '../Components/Books';
 import orderBy from 'lodash/orderBy';
+import { addBookAC } from '../actions/cartAC';
 
 const sortBy = (allBooks, type, query) => {
     
@@ -47,6 +48,7 @@ const mapState = (state) => ({
 const mapDispatch = (dispatch) => {
   return {
     setBooksList: (booksList) => dispatch(setBooksAC(booksList)),
+    addBook: (book) => dispatch(addBookAC(book))
   };
 };
 export default connect(mapState, mapDispatch)(Books);

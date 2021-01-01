@@ -1,7 +1,14 @@
 import React from 'react';
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Card, Icon, Image, Button } from 'semantic-ui-react';
 
-const BookCard = ({title, author, image, price}) => {
+const BookCard = (props) => {
+
+    const {book, ...restProps} = props;
+    const {title, author, image, price} = book;
+
+    const addBookToCart = (e) => {
+        restProps.addBook(book)
+    }
     return (
 
             <Card>
@@ -18,6 +25,7 @@ const BookCard = ({title, author, image, price}) => {
                         {price}
                     </a>
                 </Card.Content>
+                <Button onClick={addBookToCart}>Add to the cart</Button>
             </Card>
 
     );

@@ -13,7 +13,7 @@ function Books(props) {
   return (
     <Card.Group>
       {props.isReady
-        ? props.books.map((i) => <BookCard key={i.id} {...i} />)
+        ? props.books.map((i) => <BookCard addBook={props.addBook} key={i.id} book={i} />)
         : 'Loading ...'}
     </Card.Group>
   );
