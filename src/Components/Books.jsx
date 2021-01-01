@@ -15,7 +15,9 @@ function Books(props) {
       <Card.Group>
         {props.isReady
           ? props.books.map((i) => (
-              <BookCard addBook={props.addBook} key={i.id} book={i} />
+              <BookCard addBook={props.addBook} key={i.id} 
+              countAddedBook={props.countAddedBook}
+               book={i} />
             ))
           : 'Loading ...'}
       </Card.Group>

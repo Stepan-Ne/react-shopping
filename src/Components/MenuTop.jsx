@@ -2,9 +2,7 @@ import React, {useState} from 'react';
 import { Menu } from 'semantic-ui-react';
 import styled from 'styled-components';
 
-const StyledMenu = styled(Menu)({
-    ['margin-bottom']: '3rem'
-  });
+
 
 const MenuTop = (props) => {
 

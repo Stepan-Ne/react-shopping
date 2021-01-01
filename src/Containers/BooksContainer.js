@@ -44,6 +44,7 @@ const mapState = (state) => ({
     state.filterReducer.searchQuery
   ),
   isReady: state.allBooks.isReady,
+  countAddedBook: state.cartReducer.booksInCart
 });
 const mapDispatch = (dispatch) => {
   return {
