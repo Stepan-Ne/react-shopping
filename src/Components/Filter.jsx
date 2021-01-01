@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Menu, Input } from 'semantic-ui-react';
 import { filterAC, queryAC } from '../actions/filterAC';
+import s from './Components.module.css';
 
 const Filter = (props) => {
 
 
   return (
+    <div className={s.filter}>
 <Menu secondary>
         <Menu.Item
           name='all'
@@ -40,6 +42,8 @@ const Filter = (props) => {
         </Menu.Item>
         
       </Menu>
+    </div>
+
   )
 };
 

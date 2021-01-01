@@ -1,13 +1,18 @@
 import React, {useState} from 'react';
 import { Menu } from 'semantic-ui-react';
+import styled from 'styled-components';
+
+const StyledMenu = styled(Menu)({
+    ['margin-bottom']: '3rem'
+  });
 
 const MenuTop = (props) => {
 
     const [activeItem, setActiveItem] = useState('')
     const  handleItemClick = (e, { name }) => setActiveItem({ activeItem: name })
     return (
-
-            <Menu>
+<dir>
+<Menu className="ui top fixed menu">
                 <Menu.Item
                     name='browse'
                     active={activeItem === 'browse'}
@@ -43,6 +48,8 @@ const MenuTop = (props) => {
                 </Menu.Menu>
             </Menu>
 
+</dir>
+            
     );
 };
 

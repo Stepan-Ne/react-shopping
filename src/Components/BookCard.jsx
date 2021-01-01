@@ -1,7 +1,25 @@
 import React from 'react';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
+import styled from 'styled-components';
+
+
+const StyledButton = styled(Button)({
+  ['background-color']: '#4CAF50 !important',
+  color: '#FFFFFF !important',
+  transition: 'ease-in-out all 0.1s',
+  transform: 'scale(1)',
+  ['&:active']: {
+    transform: 'scale(1.2)',
+  },
+  ['&:hover']: {
+      background: '#3e8e41 !important'
+  }
+    
+});
 
 const BookCard = (props) => {
+
+    
 
     const {book, ...restProps} = props;
     const {title, author, image, price} = book;
@@ -25,7 +43,7 @@ const BookCard = (props) => {
                         {price}
                     </a>
                 </Card.Content>
-                <Button onClick={addBookToCart}>Add to the cart</Button>
+                <StyledButton onClick={addBookToCart}>Add to the cart</StyledButton>
             </Card>
 
     );
